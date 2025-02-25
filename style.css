@@ -1,0 +1,166 @@
+/* Updated CSS (style.css) */
+
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(
+      45deg,
+      #6ef018,
+     #f02618,  /* Bright Red-Orange */  /* Lighter Orange */
+      #0c4ee8,  /* Pale Peach */
+      #e80cc3 /* Light Pink */
+    );
+    background-size: 300% 300%;
+    animation: animateBackground 15s ease infinite;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+@keyframes animateBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Game Board Styling */
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    margin: 20px auto;
+    width: 330px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background-color: #74b9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    color: #2c3e50; /* Darker cell text color */
+    text-shadow: none; /* Remove text shadow */
+}
+
+.cell:hover {
+    background-color: #63a4f1;
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.cell.x {
+    color: #ff7675;
+    cursor: not-allowed;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.cell.o {
+    color: #55efc4;
+    cursor: not-allowed;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Message Display */
+#message {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Restart Button Styling */
+#restartButton {
+    padding: 12px 24px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #ff4757;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+#restartButton:hover {
+    background-color: #ff3242;
+    transform: scale(1.05);
+}
+
+#restartButton:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Celebration Animations */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f00;
+  border-radius: 50%;
+  animation: confetti-fall linear 6s forwards; /* Increased animation duration */
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--confetti-end-x), var(--confetti-end-y), 0);
+    opacity: 0;
+  }
+}
+
+.cracker {
+  position: absolute;
+  bottom: 0;
+  left: var(--cracker-start-x); /* Starting X position */
+  width: 20px; /* Cracker width */
+  height: 20px; /* Cracker Height */
+  background-color: gold;
+  border-radius: 50%;
+  animation: cracker-pop linear 3s forwards;
+}
+
+@keyframes cracker-pop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-500px); /* Distance it travels */
+    opacity: 0;
+  }
+}
